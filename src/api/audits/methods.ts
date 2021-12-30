@@ -116,6 +116,8 @@ async function runAudit(
       auth: u.username
         ? { username: u.username, password: u.password }
         : undefined,
+      // Read proxy env vars
+      proxy: undefined,
     };
     await waitOn(waitOnOpts);
   } catch (err) {
