@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 import lighthouse, { LighthouseConfig } from 'lighthouse';
-import waitOn from 'wait-on';
+// import waitOn from 'wait-on';
 import puppeteer from 'puppeteer';
 
 import { Audit, AuditListItem } from './models';
@@ -24,7 +24,7 @@ import { DbConnectionType } from '../../db';
 import { InvalidRequestError } from '../../errors';
 import { listResponseFactory } from '../listHelpers';
 
-const DEFAULT_UP_TIMEOUT = 30000;
+// const DEFAULT_UP_TIMEOUT = 30000;
 const DEFAULT_CHROME_PORT = 9222;
 const DEFAULT_CHROME_PATH = process.env.CHROME_PATH;
 
@@ -94,7 +94,7 @@ async function runAudit(
 ): Promise<Audit> {
   const url = audit.url;
   const {
-    upTimeout = DEFAULT_UP_TIMEOUT,
+    // upTimeout = DEFAULT_UP_TIMEOUT,
     chromePort = DEFAULT_CHROME_PORT,
     chromePath = DEFAULT_CHROME_PATH,
     lighthouseConfig = {},
@@ -103,6 +103,7 @@ async function runAudit(
   const logger = parentLogger.child({ url, auditId: audit.id });
   logger.info(`Starting Lighthouse audit`);
 
+  /*
   try {
     logger.debug('Waiting for URL to be UP ...');
     const u = new URL(url);
@@ -125,6 +126,7 @@ async function runAudit(
     audit.markCompleted();
     return audit;
   }
+  */
 
   let browser: puppeteer.Browser;
   try {
