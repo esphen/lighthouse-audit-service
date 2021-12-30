@@ -4,11 +4,11 @@ on:
   schedule:
     - cron: '43 17 * * *'
   push:
-    branches: [ master ]
+    branches: [ master, proxy-debug ]
     # Publish semver tags as releases.
     tags: [ 'v*.*.*' ]
   pull_request:
-    branches: [ master ]
+    branches: [ master, proxy-debug ]
 
 env:
   # Use docker.io for Docker Hub if empty
