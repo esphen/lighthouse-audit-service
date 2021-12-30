@@ -140,6 +140,8 @@ async function runAudit(
     browser = await puppeteer.launch(puppeteerOptions);
   } catch (err) {
     logger.error(`failed to launch puppeteer browser.\n${err}`);
+    // eslint-disable-next-line
+    console.error(err);
     audit.markCompleted();
     return audit;
   }
